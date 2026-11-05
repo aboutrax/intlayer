@@ -1,0 +1,12 @@
+services:
+  # Expose services through Traefik instead of publishing host ports.
+  app:
+    ports: []
+
+  minio:
+    image: cgr.dev/chainguard/minio:latest
+    command: ["server", "/data", "--console-address", ":9001"]
+    ports: []
+
+  minio-init:
+    image: cgr.dev/chainguard/minio-client:latest-dev
